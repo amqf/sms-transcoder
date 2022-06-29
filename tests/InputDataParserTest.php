@@ -1,10 +1,11 @@
 <?php
+
 use PHPUnit\Framework\TestCase;
 use SMSTranscoder\Decoders\GSMDecoder;
 use SMSTranscoder\Encoders\JSONEncoder;
 use SMSTranscoder\Transcoder;
 
-class TranscoderTest extends TestCase
+class InputDataParserTest extends TestCase
 {
     public function testTranscoder()
     {
