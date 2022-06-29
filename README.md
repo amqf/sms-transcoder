@@ -24,18 +24,6 @@ The pipeline configuration includes test stage to execute integration test with 
 
 ## Usage
 
-### With Docker (recommended)
-
-Docker was used for help.
-
-```bash
-# setup
-docker build -t faturasimples/smstranscoder .
-
-# run
-docker run -i --rm --name faturasimples_smstranscoder faturasimples/smstranscoder < sms.example
-```
-
 ### Without Docker
 
 For run without docker make sure you have installed on host these dependencies:
@@ -55,10 +43,23 @@ composer test
 # run
 php index.php < sms.example
 ```
+
+### With Docker
+
+Docker was used for just help transcode a file, no run tests.
+
+```bash
+# setup
+docker build -t faturasimples/smstranscoder .
+
+# run
+docker run -i --rm --name faturasimples_smstranscoder faturasimples/smstranscoder < sms.example
+```
+
 ## Output
 
 If used `sms.example` file from root directory, then expected output after run command line project with or without docker is:
 
 ```
-[{"seq":"1","status":"REC READ","from":"+5511388382882","timestamp":"22/05/05 16:04:23+08","text":"00480065006C006C006F00200077006F0072006C0064002000C1"}]
+[{"seq":"1","status":"REC READ","from":"+5511388382882","timestamp":"22/05/05 16:04:23+08","text":"00480065006C006C006F00200077006F0072006C0064002000C1"},{"seq":"2","status":"REC UNREAD","from":"+5511388382882","timestamp":"22/05/10 13:54:14+08","text":"Essa eh a segunda mensagem"},{"seq":"3","status":"REC UNREAD","from":"+551130872258","timestamp":"22/05/30 19:37:01+08","text":"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam..."}]
 ```
