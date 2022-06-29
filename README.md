@@ -41,8 +41,9 @@ docker run -i --rm --name faturasimples_smstranscoder faturasimples/smstranscode
 For run without docker make sure you have installed on host these dependencies:
 
 - php8.1
-- php8.1-dom
-- php8.1-mbstring
+- php8.1-dom (used by phpunit)
+- php8.1-mbstring (used by phpunit)
+- php8.1-curl (used for improve composer performance)
 
 ```bash
 # setup
