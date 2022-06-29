@@ -20,19 +20,19 @@ class GSMDecoder extends InputDataDecoder
         $data = explode("\n", $this->data);
         $messages = [];
 
-        for($line=1; $line < count($data)-2; $line++)
+        for($line=1; $line < count($data)-2; $line+=2)
         {
-            $data = [
+            $message = [
                 'header' => explode(',', $data[$line]),
                 'text' => $data[$line+1],
             ];
 
             $messages[] = [
-                'seq' => str_replace('+CMGL: ', '', $data['header'][0]),
-                'status' => str_replace('"', '', $data['header'][1]),
-                'from' => str_replace('"', '', $data['header'][2]),
-                'timestamp' => str_replace('"', '', sprintf("%s %s", $data['header'][4], $data['header'][5])),
-                'text' => str_replace('"', '', $data['text']),
+                'seq' => str_replace('+CMGL: ', '', $message['header'][0]),
+                'status' => str_replace('"', '', $message['header'][1]),
+                'from' => str_replace('"', '', $message['header'][2]),
+                'timestamp' => str_replace('"', '', sprintf("%s %s", $message['header'][4], $message['header'][5])),
+                'text' => str_replace('"', '', $message['text']),
             ];
         }
 

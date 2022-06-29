@@ -3,7 +3,8 @@
   <coverage/>
   <testsuites>
     <testsuite name="Fatura Simples - SMS Transcoder">
-        <directory suffix="Test.php">tests</directory>
+        <directory suffix="Test.php">tests/Integration</directory>
+        <directory suffix="Test.php">tests/Unit</directory>
       <exclude>/src</exclude>
     </testsuite>
   </testsuites>

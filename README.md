@@ -45,10 +45,13 @@ For run without docker make sure you have installed on host these dependencies:
 - php8.1-mbstring
 
 ```bash
-#setup
+# setup
 composer install
 
-#run
+# test execution
+composer test
+
+# run
 php index.php < sms.example
 ```
 ## Output
